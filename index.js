@@ -1,7 +1,7 @@
-const app=require('./app')
-let arr=[4,1,6,3,4,89,0];
-console.log(app.xyz())
-const result =arr.filter((item)=>{
-    return item>=4
-});
-console.warn(result);
+const http= require('http');
+const data = require('./data');
+http.createServer((req,resp)=>{
+resp.writeHead(500,{'Content-Type':'application\json'});
+resp.write(JSON.stringify(data));
+resp.end();
+}).listen(5000);
